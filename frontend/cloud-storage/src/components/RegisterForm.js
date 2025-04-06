@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../styles/RegisterForm.css'
 
 export const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -55,49 +56,53 @@ export const RegisterForm = () => {
 
 
     return (
-    <div>
-        <h2>Регистрация</h2>
-        <form onSubmit={handleSubmit}>
+    <div className='register-container'>
+        <h2 className='register-title'>Регистрация</h2>
+        <form onSubmit={handleSubmit} className='register-form'>
             <div>
-                <label>Логин:</label>
+                <label className='form-label'>Логин:</label>
                 <input
                     type="text"
                     name="username"
                     value={FormData.username}
                     onChange={handleChange}
+                    className='input'
                 />
                 {errors.username && <p style={{ color: 'red'}}> {errors.username}</p>}
             </div>
             <div>
-                <label>Полное имя: </label>
+                <label className='form-label'>Полное имя: </label>
                 <input
-                type="text"
-                name="fullName"
-                value={FormData.fullName}
-                onChange={handleChange}
+                    type="text"
+                    name="fullName"
+                    value={FormData.fullName}
+                    onChange={handleChange}
+                    className='input'
                 />
             </div>
             <div>
-                <label>E-mail:</label>
+                <label className='form-label'>E-mail:</label>
                 <input
-                type="email"
-                name="email"
-                value={FormData.email}
-                onChange={handleChange}
+                    type="email"
+                    name="email"
+                    value={FormData.email}
+                    onChange={handleChange}
+                    className='input'
                 />
                 {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
             </div>
             <div>
-                <label>Пароль:</label>
+                <label className='form-label'>Пароль:</label>
                 <input
                     type='password'
                     name='password'
                     value={FormData.password}
                     onChange={handleChange}
+                    className='input'
                 />
                 {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
             </div>
-            <button type="submit">Зарегистрироваться</button>
+            <button type="submit" className='register-button'>Зарегистрироваться</button>
         </form>
     </div>
     )

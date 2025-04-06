@@ -29,29 +29,31 @@ export const LoginForm = () => {
     };
 
     return (
-        <div>
-            <h2>Вход</h2>
+        <div className='register-container'>
+            <h2 className='register-title'>Вход</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Логин:</label>
-                    <input
-                        type="text"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                    />
+                <div className='register-form'>
+                    <div>
+                        <label className='form-label'>Логин:</label>
+                        <input
+                            type="text"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label className='form-label'>Пароль:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    {errorMessage && (<p style={{ color:'red' }}>{errorMessage}</p>)}
+                    <button type="submit" className='register-button'>Войти</button>
                 </div>
-                <div>
-                    <label>Пароль:</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                    />
-                </div>
-                {errorMessage && (<p style={{ color:'red' }}>{errorMessage}</p>)}
-                <button type="submit">Войти</button>
             </form>
         </div>
     )
